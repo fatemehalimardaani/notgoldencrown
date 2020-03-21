@@ -2,14 +2,14 @@ import firebase from "firebase";
 import 'firebase/firestore';
 import 'firebase/auth';
 const config={
-    apiKey: "AIzaSyDMtiF4eRPoYXqzR-uca4vGiivBrgeS2cE",
-    authDomain: "crown-byme.firebaseapp.com",
-    databaseURL: "https://crown-byme.firebaseio.com",
-    projectId: "crown-byme",
-    storageBucket: "crown-byme.appspot.com",
-    messagingSenderId: "742520190713",
-    appId: "1:742520190713:web:964288cc4f0b2eb657d428",
-    measurementId: "G-MP3HBH72EV"
+    apiKey: "AIzaSyCpSCa-RVBWmF5c_mMBDAFG6BdWXYTu4iY",
+    authDomain: "silvercrown-5b69c.firebaseapp.com",
+    databaseURL: "https://silvercrown-5b69c.firebaseio.com",
+    projectId: "silvercrown-5b69c",
+    storageBucket: "silvercrown-5b69c.appspot.com",
+    messagingSenderId: "1074709670895",
+    appId: "1:1074709670895:web:1251a54bdaa4797644e41a",
+    measurementId: "G-ETM2R2BDK3"
 };
 
 firebase.initializeApp(config);
