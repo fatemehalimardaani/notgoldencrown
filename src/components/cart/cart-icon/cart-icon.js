@@ -22,9 +22,7 @@ const CartIcon=({harchi,cartItemsCount})=>{
 const mapDispatchToProps=dispatch=>({
     harchi: () => dispatch(toggleCartHidden())
 })
-const mapStateToProps=state=>{
-    console.log('yo yo')
-    
+const mapStateToProps=state=>{    
     return({
     cartItemsCount:selectCartItemsCount(state)
 })

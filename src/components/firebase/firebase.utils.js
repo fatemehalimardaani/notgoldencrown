@@ -2,23 +2,32 @@ import firebase from "firebase";
 import 'firebase/firestore';
 import 'firebase/auth';
 const config={
-    apiKey: "AIzaSyCpSCa-RVBWmF5c_mMBDAFG6BdWXYTu4iY",
-    authDomain: "silvercrown-5b69c.firebaseapp.com",
-    databaseURL: "https://silvercrown-5b69c.firebaseio.com",
-    projectId: "silvercrown-5b69c",
-    storageBucket: "silvercrown-5b69c.appspot.com",
-    messagingSenderId: "1074709670895",
-    appId: "1:1074709670895:web:1251a54bdaa4797644e41a",
-    measurementId: "G-ETM2R2BDK3"
+  apiKey: "AIzaSyBdd65kQ0GZgCcs7q_si-49fi5AHh5Vfug",
+    authDomain: "crwn-crwn-c9064.firebaseapp.com",
+    databaseURL: "https://crwn-crwn-c9064.firebaseio.com",
+    projectId: "crwn-crwn-c9064",
+    storageBucket: "crwn-crwn-c9064.appspot.com",
+    messagingSenderId: "764979844316",
+    appId: "1:764979844316:web:4a2dd3a8dc88c264cf1019",
+    measurementId: "G-2T1YTDH4QQ"
 };
 
 firebase.initializeApp(config);
 export const createUserProfileDocument = async (userAuth, additionalData) => {
     if (!userAuth) return;
   
-    const userRef = firestore.doc(`users/${userAuth.uid}`);
-  
+    const userRef = firestore.doc(`user/${userAuth.uid}`);
     const snapShot = await userRef.get();
+
+    const collectionRef=firestore.collection('users')
+    const collectionSnapShot = await collectionRef.get();
+
+    console.log(snapShot,'yo yo')
+    console.log(collectionSnapShot)
+    console.log('YO YO ')
+
+
+
   
     if (!snapShot.exists) {
       const { displayName, email } = userAuth;
