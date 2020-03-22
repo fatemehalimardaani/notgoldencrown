@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import React  from 'react';
 import './App.css';
-import {Route,Switch,Link,Redirect} from 'react-router-dom'
+import {Route,Switch,Redirect} from 'react-router-dom'
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
 import Header from "./components/header/header";
@@ -11,13 +11,7 @@ import { auth, createUserProfileDocument } from './components/firebase/firebase.
 import { selectCurrentUser } from './redux/user/user.selector';
 import Checkout from './pages/checkout/checkout'
 class App extends React.Component{
-    // constructor(props) {
-    //     super(props);
-    //     this.state={
-    //         currentUser:null
-    //     }
-    // }
-    // unsubscribeFromAuth=null;
+    
     componentDidMount() {
         const {setCurrentUser} =this.props
         this.unsubscribeFromAuth=auth.onAuthStateChanged (async user=>{
