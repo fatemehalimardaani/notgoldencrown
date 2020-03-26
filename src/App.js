@@ -49,7 +49,7 @@ class App extends React.Component{
 }
 
 const mapStateToProps=(state)=>({
-    setCurrentUser:selectCurrentUser(state)
+    setCurrentUser:selectCurrentUser(state),
 })
 
 const mapDispatchToPops=dispatch=>({
