@@ -59,7 +59,6 @@ export const addCollectionAndItem= async (collectionKey,objectsToAdd)=>{
   return await batch.commit();
 }  
 
-
 export const convertCollectionsSnapshotToMap=(collections)=>{
   const transformedCollection=collections.docs.map(doc=>{
     const {title,items}=doc.data();
@@ -70,16 +69,11 @@ export const convertCollectionsSnapshotToMap=(collections)=>{
     }
   })
 
-  transformedCollection.reduce((accumulator,collection)=>{
+  return transformedCollection.reduce((accumulator,collection)=>{
     accumulator[collection.title.toLowerCase()]=collection;
     return accumulator;
   },{})
-  console.log(transformedCollection)
 }
-
-
-
-
 export const auth=firebase.auth();
 export const firestore=firebase.firestore();
 const provider=new firebase.auth.GoogleAuthProvider();

@@ -21,26 +21,39 @@ class  ShopPage extends React.Component{
 
     unsubscribeFromSnapshot=null;
 
-    componentDidMount(){
-        const {updateCollections}=this.props;
-        const collectionRef=firestore.collection('collections')
-        this.unsubscribeFromSnapshot=collectionRef.onSnapshot(async snapShot=>{
-            const collectionsMap=convertCollectionsSnapshotToMap(snapShot)
-            updateCollections(collectionsMap)
-            this.setState({
-                loading:false
-            })
-        })
+    // componentDidMount(){
+    //     const {updateCollections}=this.props;
+    //     const collectionRef=firestore.collection('collections')
+    //     this.unsubscribeFromSnapshot=collectionRef.onSnapshot(async snapShot=>{
+    //         const collectionsMap=convertCollectionsSnapshotToMap(snapShot)
+    //         updateCollections(collectionsMap)
+    //         this.setState({
+    //             loading:false
+    //         })
+    //     })
 
         
-    }
+    // }
+
+    
+        
+    componentDidMount() {
+        const { updateCollections } = this.props;
+        const collectionRef = firestore.collection('collections');
+    
+        collectionRef.get().then(snapshot => {
+          const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
+          updateCollections(collectionsMap);
+          this.setState({ loading: false });
+        });
+      }
 
     render(){
         const {match}=this.props
         return(
             <div className="shop-page">
                 <Route exact path={`${match.path}`}  render={(props)=> <CollectionOverviewWithSpinner isLoading={this.state.loading} {...props} /> } />
-        <Route  path={`${match.path}/:collectionId`}  render={(props)=> <CollectionPageWithSpinner isLoading={this.state.loading} {...props} /> }/>
+                <Route  path={`${match.path}/:collectionId`}  render={(props)=> <CollectionPageWithSpinner isLoading={this.state.loading} {...props} /> }/>
             </div>
         )
     }
